@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Digital Clock</title>
+</head>
+<body>
+    <div class="container">
+        <div id="clock"></div>
+        <button id="darkmode" onclick="changeMode()">Change Mode</button>
+    </div>
+
+    <script>
+        let clock = document.getElementById('clock')
+        let mode = 'light'
+
+        const getDate = () => {
+            const d = new Date();
+            clock.innerHTML = ('0' + d.getHours()).slice(-2) + ' : ' + ('0' + d.getMinutes()).slice(-2) + ' : ' + ('0' + d.getSeconds()).slice(-2)
+        }
+
+        setInterval(getDate, 1000);
+
+        const changeMode = () => {
+            if(mode == 'light') {
+                document.body.style.backgroundColor = "#000"
+                document.body.style.color = "#fff"
+                mode = 'dark'
+            }
+            else {
+                document.body.style.backgroundColor = "#fff"
+                document.body.style.color = "#000"
+                mode = 'light'
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,273 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+.container {
+  display: grid;
+  height: 100vh;
+  grid-template-columns: 20% auto;
+}
+
+aside {
+  border-right: 1px solid rgb(205, 205, 205);
+}
+
+.um-logo {
+  padding: 16px 24px;
+  border-bottom: 1px solid rgb(205, 205, 205);
+  width: 100%;
+}
+
+.um-user-email {
+  font-size: x-small;
+}
+
+.um-user img {
+  width: 40px;
+}
+
+.test-designer {
+  width: 50%;
+  height: 200px;
+}
+
+.test {
+  margin: 0.5rem;
+}
+
+main {
+  background-color: #C0C0C0;
+}
+
+.bi-x {
+  float: right;
+  margin-left: -20px;
+  padding: 2px;
+  background-color: #016392;
+}
+
+.test>.test-data>.bi-pencil-square, .bi-x, .um-test-name, .test>.test-data>span:first-of-type {
+  color: #fff;
+}
+
+.test>.test-data>.bi-pencil-square, .um-test-name {
+  display: inline-block;
+  margin-left: -5px;
+  padding: 1px 5px;
+  background-color: #016392;
+  font-weight: 400;
+}
+
+.test>.test-data>span:first-of-type {
+  background-color: #000;
+  padding: 3px;
+  font-size: 0.8rem;
+}
+
+.test>.test-data>.bi-pencil-square {
+  width: 85%;
+}
+
+.test-properties {
+  display: flex;
+  flex-direction: column;
+}
+
+.test-properties span {
+  background-color: #0184AE;
+  color: #fff;
+  font-size: 0.8rem;
+  padding-left: 0.3rem;
+}
+
+.form-properties {
+  display: flex;
+  justify-content: space-between;
+  background-color: #fff;
+}
+
+.form-properties label {
+  margin-top: 1rem;
+  color: #0184AE;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.description {
+  margin: 0.5rem;
+  width: 50%;
+  display: flex;
+  gap: 1rem;
+}
+
+.description label {
+  margin-top: 0;
+}
+
+.description textarea {
+  width: 100%;
+  background-color: #F5F5F5;
+  border: none;
+}
+
+.details {
+  flex: 1;
+}
+
+.details select {
+  width: 20%;
+  border: 1px solid #b0e5f7;
+  margin: 0.5rem 0 0 0;
+}
+
+.details select:last-of-type {
+  border: none;
+}
+
+.details label {
+  margin: 1rem;
+  color: #0184AE;
+}
+
+.bi-plus-circle {
+  color: #0184AE;
+}
+
+.test-main {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.test-flowchart, .test-main>.test-data {
+  border: 1px solid #0184AE;
+}
+
+.test-flowchart {
+  width: 70%;
+  height: 400px;
+  background-color: #F5F5F5;
+}
+
+.test-main>.test-data {
+  width: 30%;
+}
+
+.test-flowchart {
+  display: flex;
+  flex-direction: column;
+}
+
+.test-flowchart>span, .test-variables>span, .test-parameters>span {
+  background-color: #0184AE;
+  color: #fff;
+  font-size: 0.8rem;
+}
+
+.options {
+  display: flex;
+  justify-content: flex-start;
+  align-items: baseline;
+  padding: 0 1rem;
+  gap: 1rem;
+  background-color: #fff;
+  border-top: 3px solid #fff;
+  border-bottom: 3px solid #fff;
+}
+
+.options i {
+  color: #737986;
+  padding: 0.5rem 0;
+}
+
+.options>.bi:nth-child(3n), .options>.bi:nth-child(1) {
+  padding-right: 0.5rem;
+  border-right: 1px solid #737986;
+}
+
+.test-variables, .test-parameters {
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+}
+
+.test-variables>span, .test-parameters>span {
+  background-color: #0184AE;
+}
+
+.test-variables>i, .test-parameters>i {
+  align-self: flex-end;
+  color: #016392;
+  font-size: 1.5rem;
+}
+
+.table-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  background-color: #fff;
+  padding: 0 1rem;
+  border-bottom: 1px solid #737986;
+}
+
+.test-variables>.table-header {
+  justify-content: flex-start;
+  gap: 3rem;
+}
+
+.table-header>span {
+  color: #016392;
+  font-size: 0.8rem;
+}
+
+aside {
+  display: flex;
+  flex-direction: column;
+}
+
+.um-logo {
+  padding: 0.3rem 4rem 0.5rem 4rem;
+}
+
+.um-user{
+  display: flex;
+  padding: 1rem;
+  gap: 0.8rem;
+}
+
+ul {
+  list-style-type: none;
+  padding-inline-start: 0;
+}
+
+.um-user-name, .um-navitems__main li span, .um-navitems__secondary li span {
+  color: #016392;
+  font-weight: bold;
+}
+
+.um-user-email {
+  color: #737986;
+}
+
+.um-navitems__main, .um-navitems__secondary {
+  padding: 1rem 0;
+  border-bottom: 1px solid #737986;
+}
+
+.um-navitems__main li, .um-navitems__secondary li {
+  /* color: #02A9CB; */
+  display: flex;
+  font-size: 0.9rem;
+  padding: 0.5rem 2rem;
+  gap: 1rem;
+  text-transform: capitalize;
+  cursor: pointer;
+}
+
+.um-navitems__main i, .um-navitems__secondary i {
+  color: #02A9CB;
+}
+
