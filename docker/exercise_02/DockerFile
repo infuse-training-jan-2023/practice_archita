@@ -1,0 +1,11 @@
+FROM ruby:3.0
+
+WORKDIR /usr/src/app
+
+RUN gem install json
+
+COPY . .
+
+ENV INPUT "person.json"
+
+CMD ruby fileOperations.rb output.json; ls; cat output.json
