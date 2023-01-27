@@ -3,11 +3,15 @@ pipeline {
 
     stages {
         stage('Build') {
-            bat '''ruby printArrayElements.rb'''
+            steps {
+                bat '''ruby printArrayElements.rb'''
+            }
         }
 
         stage('Test') {
-            bat '''testCases.rb'''
+            steps {
+                bat '''testCases.rb'''
+            }
         }
     }
 }
