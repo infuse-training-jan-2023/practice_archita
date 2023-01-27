@@ -2,10 +2,15 @@ pipeline {
     agent any
 
     stages {
-        stage('build') {
+        stage('Build') {
             steps {
-                javac DuplicateCharacters.java
-                java DuplicateCharacters
+                bat javac DuplicateCharacters.java
+            }
+        }
+
+        stage('Run') {
+            steps {
+                bat java DuplicateCharacters
             }
         }
     }
