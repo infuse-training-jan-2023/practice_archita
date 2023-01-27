@@ -10,7 +10,7 @@ pipeline {
 
         stage('Test') {
             steps {
-                bat '''testCases.rb'''
+                bat '''ruby testCases.rb'''
             }
         }
     }
