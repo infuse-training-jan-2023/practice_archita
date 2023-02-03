@@ -1,10 +1,9 @@
 require 'selenium-webdriver'
 
 class Exercise_06
-    attr_accessor :driver, :site, :wait
+    attr_accessor :driver, :site_url
 
     def initialize(path_to_driver, url)
-        @wait = Selenium::WebDriver::Wait.new(:timeout => 20)
         Selenium::WebDriver::Chrome.driver_path = path_to_driver
         @driver = Selenium::WebDriver.for :chrome
         @site_url = url
@@ -12,9 +11,11 @@ class Exercise_06
     end
     
     def get_dropdown_content()
-        wait.until { driver.find_element(:css, "#countrycode + .control .select select option") }
-        content = driver.find_elements(:css, "#countrycode + .control .select select option")
-        content.each { |n| puts "Option : #{n.text}" }
+        # content = driver.find_elements(:css, "#countrycode + .control .select select option")
+        # content.each { |n| puts "Option : #{n.text}" }
+
+        dropdown = driver.find_element(:class, "select")
+        puts dropdown.text
     end    
 end
 

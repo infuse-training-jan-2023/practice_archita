@@ -4,7 +4,6 @@ class Exercise_12
     attr_accessor :driver, :site, :wait
 
     def initialize(path_to_driver, url)
-        @wait = Selenium::WebDriver::Wait.new(:timeout => 20)
         Selenium::WebDriver::Chrome.driver_path = path_to_driver
         @driver = Selenium::WebDriver.for :chrome
         @site_url = url
@@ -16,28 +15,25 @@ class Exercise_12
         email = "madhusamudra77@gmail.com"
         password = "stackoverflow11"
 
-        wait.until { driver.find_element(:css, "nav ol li:nth-of-type(3) a") }
         driver.find_element(:css, "nav ol li:nth-of-type(3) a").click
         sleep(2)
-        wait.until { driver.find_element(:id, "formContainer") }
         driver.find_element(:id, "email").send_keys(email)
         driver.find_element(:id, "password").send_keys(password)
         driver.find_element(:id, "submit-button").click
         sleep(2)
     end
 
-    def search()
+    def search(search_txt)
         if driver.find_element(:class, "js-accept-cookies").displayed?
             driver.find_element(:class, "js-accept-cookies").click
         end
         sleep(3)
 
-        wait.until { driver.find_element(:name, "q") }
         search_bar = driver.find_element(:name, "q")
-        search_bar.send_keys("ruby")
+        search_bar.send_keys(search_txt)
         sleep(2)
-        search_bar.send_keys(:enter)
-        driver.navigate.to "https://stackoverflow.com/questions/tagged/ruby"
+        driver.action.send_keys(:enter).perform
+        driver.navigate.to "https://stackoverflow.com/questions/tagged/#{search_txt}"
         sleep(2)
 
         # wait.until { driver.find_element(:id, "recaptcha-anchor") }
@@ -62,27 +58,21 @@ class Exercise_12
     end
 
     def check_question()
-        wait.until { driver.find_element(:css, "#question-summary-75202386  .s-post-summary--content h3 a") }
-        driver.find_element(:css, "#question-summary-75202386  .s-post-summary--content h3 a").click
         sleep(2)
-        driver.execute_script("window.scrollTo(0, 900)")
-        wait.until { driver.find_element(:id, "answer-sort-dropdown-select-menu") }
+        driver.find_elements(:class, "s-link")[4].click
+        sleep(2)
         Selenium::WebDriver::Support::Select.new(driver.find_element(:id, "answer-sort-dropdown-select-menu")).select_by(:value, "trending")
         sleep(3)
-        wait.until { driver.find_element(:id, "answer-75202684") }
-        driver.find_element(:css, "#answer-75202684 .votecell .js-voting-container .js-vote-up-btn").click
-        driver.find_element(:id, "saves-btn-75202684").click
+        driver.find_element(:class, "js-saves-btn").click
         sleep(2)
     end
 
     def go_to_users()
-        wait.until { driver.find_element(:css, "nav ol li:nth-of-type(2) a") }
-        driver.find_element(:css, "nav ol li:nth-of-type(2) a").click
+        driver.find_element(:class, "s-avatar--image").click
         sleep(2)
     end
 
     def go_to_settings()
-        wait.until { driver.find_element(:css, ".js-user-header") }
         driver.find_element(:css, ".js-user-header a[href='/users/preferences/21061391']").click
         sleep(2)
         if driver.find_element(:id, 'enableForcedDark').selected? 
@@ -94,7 +84,7 @@ class Exercise_12
     end
 
     def automate()
-        search()
+        search("ruby")
         login()
         filter()
         check_question()
@@ -103,7 +93,7 @@ class Exercise_12
     end    
 end
 
-path_to_driver = "C:\\Users\\Archita\\Documents\\Work_Infuse\\Training\\selenium\\chromedriver_win32\\chromedriver.exe"
+path_to_driver = "C:\\Users\\User\\Documents\\Work_Infuse\\Training\\selenium\\chromedriver_win32\\chromedriver.exe"
 site = "https://stackoverflow.com/"
 ex12 = Exercise_12.new(path_to_driver, site)
 ex12.automate()
