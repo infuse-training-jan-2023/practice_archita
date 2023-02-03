@@ -1,0 +1,5 @@
+todo.db
+src/__pycache__
+web_service_env
+commands.txt
+items.csv
