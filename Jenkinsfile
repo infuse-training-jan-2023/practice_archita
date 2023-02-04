@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent {label 'jenkins-slave-archita'}
 
     stages {
         stage('Build') {
