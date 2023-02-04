@@ -1,0 +1,23 @@
+pipeline {
+    agent {label 'jenkins-slave-archita'}
+    
+    parameters {
+        string(defaultValue: "https://github.com/infuse-training-jan-2023/practice_archita.git", description: 'Github repository url', name: 'github_url')
+        string(defaultValue: "practice_archita", description: 'name of the folder from cloned repo', name: 'github_path')
+        string(defaultValue: "testCases.rb", description: 'program to be executed', name: 'ruby_filename')
+        string(defaultValue: "jenkins/ruby", description: 'github branch', name: 'github_branch')
+    }
+
+    stages {
+        stage('build') {
+            steps {
+                bat "RMDIR /S /Q ${params.github_path}"
+                bat "git clone ${params.github_url}"
+                dir("${params.github_path}") {
+                    bat "git switch ${params.github_branch}"
+                    bat "ruby ${params.ruby_filename}"
+                }
+            }
+        }
+    }
+}
