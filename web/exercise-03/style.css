@@ -271,3 +271,7 @@ ul {
   color: #02A9CB;
 }
 
+.um-navitems__main li:hover, .um-navitems__secondary li:hover {
+  background-color: #ADD8E6;
+}
+

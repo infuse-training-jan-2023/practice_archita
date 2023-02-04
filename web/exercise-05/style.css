@@ -9,6 +9,7 @@ body {
     margin: 3rem auto;
     text-align: center;
     font-family: sans-serif;
+    position: relative;
 }
 
 .main {
@@ -71,6 +72,10 @@ iframe {
     min-width: 200px;
 }
 
+.card-selected {
+    border: 2px solid red;
+}
+
 p:nth-of-type(1)::before {
     content: 'Name: ';
 }
@@ -103,7 +108,18 @@ iframe{
     top: 0;
 }
 
-/* @media only screen and (max-width: 600px) {
+.show_info {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    font-weight: 900;
+    z-index: 1;
+    display: none;
+}
+
+@media only screen and (max-width: 600px) {
     .main, .head {
         flex-direction: column;
         margin-bottom: 2rem;
@@ -112,11 +128,16 @@ iframe{
     .content {
         width: 100%;
     }
+
+    .show_info {
+        display: block;
+    }
 }
 
 @media only screen and (max-width: 890px) {
-    .card {
-        width: 100%;
+    #cards {
+        /* width: 100%; */
+        justify-content: center;
     }
-} */
+}
 

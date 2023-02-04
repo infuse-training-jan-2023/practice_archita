@@ -12,7 +12,16 @@ const user = {
 const printUserProfile = () => {
     // Piyush Sharma is a Senior Software Engineer at Infuse Consulting. He likes Reading, Listening to music and Collecting stamps
     let {name, designation, company, hobbies} = user
-    console.log(`${name} is a ${designation} at ${company}. He likes ${hobbies[0]}, ${hobbies[1]} and ${hobbies[2]}`);
+    let all_hobbies = ""
+    hobbies.forEach((hobby, index) => {
+        if(index == hobbies.length - 2)
+            all_hobbies += hobby + ' and '
+        else if(index == hobbies.length - 1)
+            all_hobbies += hobby 
+        else 
+            all_hobbies += hobby + ', '
+    })
+    console.log(`${name} is a ${designation} at ${company}. He likes ${all_hobbies}`);
 }
 
 printUserProfile()

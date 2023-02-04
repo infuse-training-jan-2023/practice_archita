@@ -25,12 +25,6 @@
             padding: 0.5rem;
             cursor: pointer;
         }
-
-        @media only screen and (max-width: 600px) {
-            body {
-                font-size: 70%;
-            }
-        }
     </style>
 </head>
 <body>
@@ -69,7 +63,7 @@
                 let pokemon_moves = moves.map(m => pokemon_moves_arr.push(m.move.name))
                 let pokemon_forms = forms.map(f => f.name)
 
-                document.getElementById('name').innerHTML = 'Name: ' +species_name
+                document.getElementById('name').innerHTML = 'Name: ' + species_name
                 document.getElementById('stats').innerHTML = 'Stats: ' + pokemon_stats
                 document.getElementById('forms').innerHTML = 'Form: ' + pokemon_forms
                 document.getElementById('moves').innerHTML = 'Moves: ' + pokemon_moves_arr.slice(0, 5)
@@ -77,9 +71,15 @@
         )
 
         const show_more_moves = () => {
-            const show_more_btn = document.getElementById('show_more')
-            document.getElementById('moves').innerHTML = 'Moves: ' + pokemon_moves_arr.slice(5, pokemon_moves_arr.length)
-            show_more_btn.style.display = 'none'
+            let show_more_btn = document.getElementById('show_more')
+            if(show_more_btn.innerText == 'Show More Moves') {
+                document.getElementById('moves').innerHTML = 'Moves: ' + pokemon_moves_arr.slice(5, pokemon_moves_arr.length)
+                show_more_btn.innerText = 'Show Less Moves'
+            }
+            else {
+                document.getElementById('moves').innerHTML = 'Moves: ' + pokemon_moves_arr.slice(0, 5)
+                show_more_btn.innerText = 'Show More Moves'
+            }
         }
 
     </script>

@@ -4,7 +4,7 @@ body {
     box-sizing: border-box;
 }
 
-.container {
+#container {
     max-width: 70%;
     margin: 5rem auto;
     text-align: center;
@@ -17,6 +17,11 @@ body {
     padding: 1rem;
 }
 
+.dark {
+    background-color: #000;
+    color: #fff;
+}
+
 button {
     border: 0;
     padding: 1rem;
@@ -25,8 +30,3 @@ button {
     cursor: pointer;
     font-size: 1.2rem;
 }
-
-/* #darkmode {
-    background-color: #000;
-    color: #fff;
-} */
