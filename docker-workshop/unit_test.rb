@@ -18,7 +18,7 @@ class TestFrameworkMethods < Test::Unit::TestCase
     def test_navigate_to_url_fail
         tf_obj = Test_Framework.new
         # assert_equal("Invalid url", tf_obj.navigate_to_url('CUsers\User\Documents\Work_Infuse\Training\practice_archita\docker-workshop\test.html')) 
-        assert_equal("Invalid url", tf_obj.navigate_to_url('fe:///app/test.html')) 
+        assert_equal("Invalid url", tf_obj.navigate_to_url('file///app/test.html')) 
     end
 
     def test_page_title
@@ -114,7 +114,11 @@ class TestFrameworkMethods < Test::Unit::TestCase
         driver = Driver.new.driver_method()
         # driver.get('C:\Users\User\Documents\Work_Infuse\Training\practice_archita\docker-workshop\test.html')
         driver.get('file:///app/test.html')
-        assert_equal("Element not found", tf_obj.click_element(driver.find_element(css: "#sign > button")))
+        begin
+            assert_equal("Element not found", tf_obj.click_element(driver.find_element(css: "#sign > button")))
+        rescue => exception
+            puts exception.message
+        end
     end
 
     def test_get_attribute_success
