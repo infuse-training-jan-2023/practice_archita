@@ -108,8 +108,8 @@ class TestFrameworkMethods < Test::Unit::TestCase
     def test_get_text
         tf_obj = Test_Framework.new
         driver = Driver.new.driver_method()
-        driver.get('C:\Users\User\Documents\Work_Infuse\Training\practice_archita\docker-workshop\test.html')
-        # driver.get('file:///app/test.html')
+        # driver.get('C:\Users\User\Documents\Work_Infuse\Training\practice_archita\docker-workshop\test.html')
+        driver.get('file:///app/test.html')
         element = driver.find_element(tag_name: "h1")
         assert_equal("Mock Form", tf_obj.get_text(element))
     end
@@ -117,8 +117,8 @@ class TestFrameworkMethods < Test::Unit::TestCase
     def test_get_text_input_field
         tf_obj = Test_Framework.new
         driver = Driver.new.driver_method()
-        driver.get('C:\Users\User\Documents\Work_Infuse\Training\practice_archita\docker-workshop\test.html')
-        # driver.get('file:///app/test.html')
+        # driver.get('C:\Users\User\Documents\Work_Infuse\Training\practice_archita\docker-workshop\test.html')
+        driver.get('file:///app/test.html')
         element = driver.find_element(tag_name: "input")
         assert_equal("111", tf_obj.get_text(element, "input"))
     end
