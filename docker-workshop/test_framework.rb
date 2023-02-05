@@ -68,7 +68,7 @@ class Test_Framework
             element.send_keys(key)
             return "#{key}"
         rescue 
-            return "Element not found or key is invalid" 
+            return "Key is invalid" 
         end
     end
 

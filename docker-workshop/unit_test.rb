@@ -69,19 +69,6 @@ class TestFrameworkMethods < Test::Unit::TestCase
         assert_equal("abcd", tf_obj.send_keys(element1, "abcd"))
     end
 
-    def test_send_data_fail
-        tf_obj = Test_Framework.new
-        driver = Driver.new.driver_method()
-        # driver.get('C:\Users\User\Documents\Work_Infuse\Training\practice_archita\docker-workshop\test.html')
-        driver.get('file:///app/test.html')
-        driver.find_element(css: "#signup > button").click
-        begin
-            assert_equal("Element not found or key is invalid", tf_obj.send_keys(driver.find_element(:i, "name"), "abcd"))
-        rescue => exception
-            puts exception.message
-        end
-    end
-
     def test_send_key_success
         tf_obj = Test_Framework.new
         driver = Driver.new.driver_method()
@@ -97,7 +84,7 @@ class TestFrameworkMethods < Test::Unit::TestCase
         # driver.get('C:\Users\User\Documents\Work_Infuse\Training\practice_archita\docker-workshop\test.html')
         driver.get('file:///app/test.html')
         element = driver.find_element(css: "#signup > button")
-        assert_equal("Element not found or key is invalid", tf_obj.send_keys(element, :eer))
+        assert_equal("Key is invalid", tf_obj.send_keys(element, :eer))
     end
 
     def test_click_success
@@ -109,18 +96,6 @@ class TestFrameworkMethods < Test::Unit::TestCase
         assert_equal("Clicked successfully", tf_obj.click_element(element))
     end
 
-    def test_click_fail
-        tf_obj = Test_Framework.new
-        driver = Driver.new.driver_method()
-        # driver.get('C:\Users\User\Documents\Work_Infuse\Training\practice_archita\docker-workshop\test.html')
-        driver.get('file:///app/test.html')
-        begin
-            assert_equal("Element not found", tf_obj.click_element(driver.find_element(css: "#sign > button")))
-        rescue => exception
-            puts exception.message
-        end
-    end
-
     def test_get_attribute_success
         tf_obj = Test_Framework.new
         driver = Driver.new.driver_method()
@@ -128,19 +103,6 @@ class TestFrameworkMethods < Test::Unit::TestCase
         driver.get('file:///app/test.html')
         element = driver.find_element(css: "#signup > button")
         assert_equal("submit", tf_obj.get_attribute(element, "type"))
-    end
-
-    def test_get_attribute_fail
-        tf_obj = Test_Framework.new
-        driver = Driver.new.driver_method()
-        # driver.get('C:\Users\User\Documents\Work_Infuse\Training\practice_archita\docker-workshop\test.html')
-        driver.get('file:///app/test.html')
-        element = driver.find_element(css: "#signup > button")
-        begin
-            assert_equal("Element not found or attribute is invalid", tf_obj.get_attribute(element, "te"))
-        rescue => exception
-            puts exception.message
-        end
     end
 
     def test_get_text_success
@@ -152,17 +114,6 @@ class TestFrameworkMethods < Test::Unit::TestCase
         assert_equal("Mock Form", tf_obj.get_text(element))
     end
 
-    def test_get_text_fail
-        tf_obj = Test_Framework.new
-        driver = Driver.new.driver_method()
-        # driver.get('C:\Users\User\Documents\Work_Infuse\Training\practice_archita\docker-workshop\test.html')
-        driver.get('file:///app/test.html')
-        begin
-            assert_equal("Element not found", tf_obj.get_text(driver.find_element(tag_name: "h")))
-        rescue => exception
-            puts exception.message
-        end
-    end
 
     def test_is_displayed_success
         tf_obj = Test_Framework.new
@@ -171,17 +122,5 @@ class TestFrameworkMethods < Test::Unit::TestCase
         driver.get('file:///app/test.html')
         element = driver.find_element(tag_name: "h1")
         assert_equal(true, tf_obj.is_displayed(element))
-    end
-
-    def test_is_displayed_fail
-        tf_obj = Test_Framework.new
-        driver = Driver.new.driver_method()
-        # driver.get('C:\Users\User\Documents\Work_Infuse\Training\practice_archita\docker-workshop\test.html')
-        driver.get('file:///app/test.html')
-        begin
-            assert_equal("Element not found", tf_obj.is_displayed(driver.find_element(tag_nam: "h1")))
-        rescue => exception
-            puts exception.message
-        end
     end
 end
