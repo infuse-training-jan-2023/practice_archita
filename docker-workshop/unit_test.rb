@@ -96,7 +96,7 @@ class TestFrameworkMethods < Test::Unit::TestCase
         assert_equal("Clicked successfully", tf_obj.click_element(element))
     end
 
-    def test_get_attribute_success
+    def test_get_attribute
         tf_obj = Test_Framework.new
         driver = Driver.new.driver_method()
         # driver.get('C:\Users\User\Documents\Work_Infuse\Training\practice_archita\docker-workshop\test.html')
@@ -105,15 +105,23 @@ class TestFrameworkMethods < Test::Unit::TestCase
         assert_equal("submit", tf_obj.get_attribute(element, "type"))
     end
 
-    def test_get_text_success
+    def test_get_text
         tf_obj = Test_Framework.new
         driver = Driver.new.driver_method()
-        # driver.get('C:\Users\User\Documents\Work_Infuse\Training\practice_archita\docker-workshop\test.html')
-        driver.get('file:///app/test.html')
+        driver.get('C:\Users\User\Documents\Work_Infuse\Training\practice_archita\docker-workshop\test.html')
+        # driver.get('file:///app/test.html')
         element = driver.find_element(tag_name: "h1")
         assert_equal("Mock Form", tf_obj.get_text(element))
     end
 
+    def test_get_text_input_field
+        tf_obj = Test_Framework.new
+        driver = Driver.new.driver_method()
+        driver.get('C:\Users\User\Documents\Work_Infuse\Training\practice_archita\docker-workshop\test.html')
+        # driver.get('file:///app/test.html')
+        element = driver.find_element(tag_name: "input")
+        assert_equal("111", tf_obj.get_text(element, "input"))
+    end
 
     def test_is_displayed_success
         tf_obj = Test_Framework.new

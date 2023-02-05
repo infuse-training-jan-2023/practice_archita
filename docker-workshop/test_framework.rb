@@ -46,8 +46,11 @@ class Test_Framework
         end
     end
 
-    def get_text(element)
+    def get_text(element, type="")
         begin
+            if type == 'input'
+                return get_attribute(element, "value")
+            end
             return element.text
         rescue 
             return "Element not found" 
