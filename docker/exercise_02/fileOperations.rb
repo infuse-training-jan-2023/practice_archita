@@ -1,6 +1,6 @@
 require 'json'
 
-ENV["INPUT"] = "./person.json"
+# ENV["INPUT"] = "./person.json"
 # puts "#{ENV["INPUT"]}"
 begin
     file = File.read(ENV["INPUT"])

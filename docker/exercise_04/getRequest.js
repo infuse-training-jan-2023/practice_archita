@@ -1,5 +1,5 @@
 const axios = require('axios')
-const API_URL = 'https://pokeapi.co/api/v2/pokemon'
+const API_URL = process.env.URL
 
 const getPokemon = async () => {
     try {
