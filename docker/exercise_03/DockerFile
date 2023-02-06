@@ -1,0 +1,9 @@
+FROM ruby:3.0
+
+WORKDIR /usr/src/app
+
+RUN gem install test-unit
+
+COPY . .
+
+CMD ruby testCases.rb

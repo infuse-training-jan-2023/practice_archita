@@ -1,0 +1,20 @@
+version: "3"
+
+services:
+  backend:
+    image: backend
+    ports:
+      - "5000:5000"
+    volumes:
+      - C:/Users/Archita/Documents/Work_Infuse/Training/docker/exercise_06/backend:/usr/src/app/backend
+    environment:
+      WATCHPACK_POLLING: "true"
+  frontend:
+    image: frontend
+    stdin_open: true
+    ports:
+      - "3000:3000"
+    volumes:
+      - "C:/Users/Archita/Documents/Work_Infuse/Training/docker/exercise_06/frontend:/usr/src/app/frontend"
+    environment:
+      WATCHPACK_POLLING: "true"

@@ -1,0 +1,11 @@
+FROM node:12.18.1
+
+WORKDIR /usr/src/app
+
+RUN npm install axios
+
+COPY . .
+
+ENV URL 'https://pokeapi.co/api/v2/pokemon'
+
+CMD node getRequest.js
