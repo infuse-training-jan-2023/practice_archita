@@ -1,11 +1,12 @@
 require_relative 'test_framework'
+require_relative 'driver'
 
 class AutomateHeadphonezone
-    attr_accessor :tf_obj, :wait
+    attr_accessor :tf_obj, :driver
 
     def initialize
-        # @wait = Selenium::WebDriver::Wait.new(:timeout => 20)
-        @tf_obj = Test_Framework.new
+        # driver = Driver.new.driver_method()
+        @tf_obj = Test_Framework.new(Driver.new.driver_method())
         @tf_obj.navigate_to_url("https://www.headphonezone.in/")
     end
 
@@ -13,60 +14,16 @@ class AutomateHeadphonezone
         puts "Page Title is #{tf_obj.get_page_title}"
     end
 
-    # def login
-    #     email = "zwjxssrkhtquzmmppe@tmmbt.com"
-    #     password = "abcdefgh1"
-
-    #     if driver.find_element(:css, "#lion-loyalty-panel-custom-css div:nth-of-type(5) div a").displayed?
-    #         driver.find_element(:css, "#lion-loyalty-panel-custom-css div:nth-of-type(5) div a").click
-    #     end
-    #     sleep(1)
-
-    #     wait.until {driver.find_element(:xpath, "/html/body/div[3]/store-header/div/div/div/ul/li[2]/a")}
-    #     driver.find_element(:xpath, "/html/body/div[3]/store-header/div/div/div/ul/li[2]/a").click
-    #     sleep(1)
-
-    #     driver.find_element(:id, "customer[email]").send_keys(email)
-    #     driver.find_element(:id, "customer[password]").send_keys(password)
-    #     driver.find_element(:css, "button.form__submit:nth-child(5)").click
-    #     sleep(5)
-
-    #     wait.until {driver.find_element(:xpath, "//*[@id='main']/div[1]/form/input[2]")}
-    #     return "Asking for Captcha"
-
-    #     # driver.find_element(:xpath, "//*[@id='main']/div[1]/form/input[2]").click
-    #     # sleep(5)
-
-    #     # begin
-    #     #     if driver.find_element(:css, ".flits-header-title > h1").displayed?
-    #     #         return "Login successfull"
-    #     #     end
-    #     # rescue => exception
-    #     #     raise "Login failed"
-    #     # end
-    # end
-
     def search(search_txt)
-        # sleep(2)
-        # begin
-        #     popup = tf_obj.find_element(css: "#lion-loyalty-panel-custom-css div:nth-of-type(5) div a")
-        #     if tf_obj.is_displayed(popup)
-        #         tf_obj.click_element(popup)
-        #     end
-        # rescue => e
-        #     puts e.message
-        # end
         popup = tf_obj.find_element(css: "#lion-loyalty-panel-custom-css div:nth-of-type(5) div a")
         tf_obj.click_element(popup)
         sleep(2)
 
         search_icon = tf_obj.find_element(css: "ul.header__linklist:nth-child(2) > li:nth-child(1) > a:nth-child(1)")
-        # wait.until{search_icon}
         tf_obj.click_element(search_icon)
         sleep(2)
 
         search_input = tf_obj.find_element(css: ".predictive-search__input")
-        # wait.until{search_input}
         tf_obj.send_keys(search_input, search_txt)
         sleep(2)
 
@@ -93,7 +50,6 @@ class AutomateHeadphonezone
         tf_obj.click_element(brand_opt2)
         tf_obj.click_element(brand)
         puts "Filter applied"
-        # sleep(2)
 
         item = tf_obj.find_element(css: "#facet-main > product-list > div > product-item:nth-child(4)")
         tf_obj.click_element(item)

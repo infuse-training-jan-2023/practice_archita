@@ -4,8 +4,8 @@ require_relative 'driver'
 class Test_Framework
     attr_accessor :driver
 
-    def initialize
-        @driver = Driver.new.driver_method()
+    def initialize(driver)
+        @driver = driver
     end
 
     def navigate_to_url(url)
