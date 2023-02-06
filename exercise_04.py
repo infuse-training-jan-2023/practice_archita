@@ -1,20 +1,6 @@
 from collections import defaultdict
 
-class Exercise_04:
-    # def count_of_subarrays(self, nums, k) -> int:
-    #     prev_sum_list = []
-    #     curr_sum = 0
-    #     out = 0
-
-    #     for i in range(len(nums)):
-    #         # print(prev_sum_list)
-    #         curr_sum += nums[i]
-    #         out += 1 if k == curr_sum else 0
-    #         out += prev_sum_list.count(curr_sum - k) if curr_sum - k in prev_sum_list else 0
-    #         prev_sum_list.append(curr_sum)
-        
-    #     return out
-
+class ExerciseFour:
     def count_of_subarrays_dict(self, nums, k) -> int:
         if len(nums) == 0:
             raise IndexError("Array is empty")
