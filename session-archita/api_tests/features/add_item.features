@@ -1,0 +1,8 @@
+Feature: Add an item
+    As a user i want to add an item
+
+    Scenario: Add an item
+        When i want to add item
+        Then i should get the item added
+        Then the api status code should be 201
+        Then the api response content should be json

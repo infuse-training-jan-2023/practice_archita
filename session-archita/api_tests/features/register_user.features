@@ -1,0 +1,8 @@
+Feature: Add a user
+    As a user i want to register a user
+
+    Scenario: Add a user
+        When i want to register a user 
+        Then i should get the user registered
+        Then the api status code should be 201
+        Then the api response content should be json
