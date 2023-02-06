@@ -10,7 +10,7 @@ def validate_email(email):
     return {'Message': 'Not valid email'}
 
 @app.route('/', methods=['GET'])
-def get_email():
+def validate():
     request_data = request.get_json()
     email = request_data['email']
     return validate_email(email)

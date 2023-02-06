@@ -1,5 +1,6 @@
 from flask import Flask, Response, request
 from item_actions import ItemActions
+from user_actions import UserActions
 import json
 
 app = Flask(__name__)
@@ -13,6 +14,7 @@ def welcome():
 #     return str(num * num)
 
 item_actions = ItemActions()
+user_actions = UserActions()
 
 @app.route('/items', methods = ['GET'])
 def get_all_items():
@@ -62,7 +64,7 @@ def register_user():
   user_name = request_data['user_name']
   email_id = request_data['email_id']
 
-  added_item = item_actions.register_user(user_name, email_id)
+  added_item = user_actions.register_user(user_name, email_id)
   if added_item == {}:
     return Response("{'error': 'Error adding the user'}", mimetype='application/json', status=500)
   return Response(json.dumps(added_item), mimetype='application/json', status=201)

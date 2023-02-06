@@ -10,7 +10,7 @@ def validate_password(password):
     return {"Message": "Not valid password"}
 
 @app.route('/', methods=['GET'])
-def get_password():
+def validate():
     request_data = request.get_json()
     password = request_data['password']
     return validate_password(password)

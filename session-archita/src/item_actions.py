@@ -1,4 +1,5 @@
 from item_repository import ItemRepository
+import csv
 
 class ItemActions:
     def __init__(self) -> None:
@@ -70,8 +71,15 @@ class ItemActions:
 
     def save_items(self):
         try:
-            record = self.item_repo.save_items()
-            return record
+            with open('items.csv', 'w', newline='') as csvfile:
+                fields = ['ID', 'ITEM', 'STATUS', 'REMINDER']
+                csvwriter = csv.writer(csvfile)
+                csvwriter.writerow(fields)
+
+                rows = self.get_all_items()
+                csvwriter.writerows(rows)
+            return {
+                'Message': "Items saved successfully"
+            }
         except Exception as e:
-            print(e)
-            return {}
+            raise Exception("Error: ", e)

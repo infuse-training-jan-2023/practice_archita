@@ -1,4 +1,4 @@
-import sqlite3, csv
+import sqlite3
 
 class ItemRepository:
     def __init__(self) -> None:
@@ -93,17 +93,3 @@ class ItemRepository:
         except Exception as e:
             raise Exception("Error: ", e)
 
-    def save_items(self):
-        try:
-            with open('items.csv', 'w', newline='') as csvfile:
-                fields = ['ID', 'ITEM', 'STATUS', 'REMINDER']
-                csvwriter = csv.writer(csvfile)
-                csvwriter.writerow(fields)
-
-                rows = self.get_all_items()
-                csvwriter.writerows(rows)
-            return {
-                'Message': "Items saved successfully"
-            }
-        except Exception as e:
-            raise Exception("Error: ", e)
