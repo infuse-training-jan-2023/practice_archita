@@ -2,7 +2,7 @@ pipeline {
     agent {label 'jenkins-slave-archita'}
 
     stages {
-        stage('Build') {
+        stage('Run') {
             steps {
                 bat '''ruby printArrayElements.rb'''
             }
