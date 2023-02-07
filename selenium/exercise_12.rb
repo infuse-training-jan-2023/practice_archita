@@ -47,7 +47,13 @@ class Exercise_12
             end
         end
         sleep(1)
-        driver.find_element(:css, "[name=sortId][value=MostVotes]").click
+        # driver.find_element(:css, "[name=sortId][value=MostVotes]").click
+        driver.find_elements(:tag_name, "input").each do |x| 
+            if x.attribute("value") == "MostVotes"
+                x.click
+            end
+        end
+        
         sleep(1)
         driver.find_elements(:css, ".flex--item button").each do |x| 
             if x.text == "Cancel"
