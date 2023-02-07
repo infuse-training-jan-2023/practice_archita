@@ -1,5 +1,5 @@
-todo.db
-src/__pycache__
+*.db
 web_service_env
 commands.txt
-items.csv
+*.csv
+.pytest_cache
