@@ -17,7 +17,6 @@ pipeline {
                 bat "git switch jenkins/ruby"
                 bat "git pull"
                 bat "git merge -X theirs jenkins/ruby-1"
-                bat "git commit -m 'merging'"
                 bat "git push"
             }
         }
