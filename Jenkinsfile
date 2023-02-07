@@ -15,7 +15,7 @@ pipeline {
             steps {
                 bat "git switch jenkins/ruby"
                 bat "git merge -X theirs jenkins/ruby-1"
-                bat "git commit -m 'merge jenkins/ruby-1 into jenkins/ruby'"
+                bat "git commit -m 'merging'"
                 bat "git push"
             }
         }
