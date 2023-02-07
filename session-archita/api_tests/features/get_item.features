@@ -1,0 +1,8 @@
+Feature: Get an item
+    As a user i can get an item in todo based on id
+
+    Scenario: Get an item
+        When i search for an item
+        Then i should get the item present
+        Then the api status code should be 200
+        Then the api response content should be json

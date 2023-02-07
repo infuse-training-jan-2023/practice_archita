@@ -1,0 +1,8 @@
+Feature: Update an item
+    As a user i want to update an item
+
+    Scenario: Update an item
+        When i want to update item
+        Then i should get the item updated
+        Then the api status code should be 201
+        Then the api response content should be json
