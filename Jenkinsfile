@@ -7,6 +7,7 @@ pipeline {
                 bat "git clone https://github.com/infuse-training-jan-2023/practice_archita/"
                 bat "cd practice_archita"
                 bat "git switch jenkins/ruby-1"
+                bat "git pull"
                 bat "ruby testCases2.rb"
             }
         }
@@ -14,6 +15,7 @@ pipeline {
         stage('Merge') {
             steps {
                 bat "git switch jenkins/ruby"
+                bat "git pull"
                 bat "git merge -X theirs jenkins/ruby-1"
                 bat "git commit -m 'merging'"
                 bat "git push"
