@@ -22,6 +22,17 @@ const printUserProfile = () => {
             all_hobbies += hobby + ', '
     })
     console.log(`${name} is a ${designation} at ${company}. He likes ${all_hobbies}`);
+
+    let res_str = ""
+    hobbies.reduce((accumulator, currentValue, currentIndex) => {
+        if(currentIndex == hobbies.length - 2)
+            res_str += currentValue + ' and '
+        else if(currentIndex == hobbies.length - 1)
+            res_str += currentValue
+        else 
+            res_str += currentValue + ', '
+    }, 0)
+    console.log(`${name} is a ${designation} at ${company}. He likes ${res_str}`);
 }
 
 printUserProfile()
