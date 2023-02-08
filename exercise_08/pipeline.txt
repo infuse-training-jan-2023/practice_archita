@@ -9,10 +9,10 @@ pipeline {
                 script {
                     try {
                         URL api_url_obj = new URL("https://jsonplaceholder.typicode.com/todos")
-                        def data= new JsonSlurper().parse(api_url_obj)
-                        data.each { obj ->
-                            if(!obj.completed)
-                                println obj
+                        def todos= new JsonSlurper().parse(api_url_obj)
+                        todos.each { todo ->
+                            if(!todo.completed)
+                                println todo
                         } 
                     } 
                     catch(Exception e) {
