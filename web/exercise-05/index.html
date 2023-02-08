@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <title>Pokemons</title>
+</head>
+<body>
+    <div class="container">
+        <a href="#info" class="show_info" onclick="showInfo()">&darr;</a>
+        <h1 id="top">Pokemons</h1>
+        <div class="main">
+            <div class="content">
+                <div class="head">
+                    <div class="sort">
+                        <span>Sort</span>
+                        <select id="sort_options" onchange="changeSortValue()">
+                            <option>Choose</option>
+                            <option value="default">Name</option>
+                            <option value="weight">weight</option>
+                            <option value="base_experience">base experience</option>
+                        </select>
+                    </div>
+                    <div class="search">
+                        <input type="search" id="gsearch" oninput="searchPokemons()" placeholder="Search...">
+                    </div>
+                </div>
+                <div id="cards"></div>
+                <div class="load">
+                    <button onclick="loadMore()">Load More</button>
+                </div>
+            </div>
+            <div class="content" id="info">
+                <iframe title="Pokemons Info" name="info_iframe" height="500"></iframe>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

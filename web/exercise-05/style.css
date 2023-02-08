@@ -1,0 +1,143 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    max-width: 90%;
+    margin: 3rem auto;
+    text-align: center;
+    font-family: sans-serif;
+    position: relative;
+}
+
+.main {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    /* align-items: stretch; */
+}
+
+.content {
+    width: 50%;
+}
+
+.content:nth-of-type(2) {
+    border: 1px solid #ccc;
+}
+
+iframe { 
+    width: 100%; 
+    border: none;
+}
+
+.head {
+    display: flex;
+    text-align: center;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#gsearch {
+    width: 100%;
+    border: 0;
+    border-bottom: 2px solid #ccc;
+}
+
+.sort {
+    margin: 2rem;
+}
+
+.sort span {
+    margin-right: 0.5rem;
+    font-weight: 700;
+}
+
+.sort select {
+    padding: 0.7rem 0;
+}
+
+#cards {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.card {
+    border: 2px solid #ccc;
+    padding: 1rem;
+    min-width: 200px;
+}
+
+.card-selected {
+    border: 2px solid red;
+}
+
+p:nth-of-type(1)::before {
+    content: 'Name: ';
+}
+
+p:nth-of-type(2)::before {
+    content: 'Weight: ';
+}
+
+p:nth-of-type(3)::before {
+    content: 'Base Experience: ';
+}
+
+button {
+    border: 0;
+    padding: 1rem;
+    margin-top: 3rem;
+    background-color: #ccc;
+    cursor: pointer;
+}
+
+a {
+    color: #000;
+    text-decoration: none;
+    background-color: burlywood;
+    padding: 0.5rem 1rem;
+}
+
+iframe{
+    position: sticky;
+    top: 0;
+}
+
+.show_info {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    font-weight: 900;
+    z-index: 1;
+    display: none;
+}
+
+@media only screen and (max-width: 600px) {
+    .main, .head {
+        flex-direction: column;
+        margin-bottom: 2rem;
+    }
+
+    .content {
+        width: 100%;
+    }
+
+    .show_info {
+        display: block;
+    }
+}
+
+@media only screen and (max-width: 890px) {
+    #cards {
+        /* width: 100%; */
+        justify-content: center;
+    }
+}
+
