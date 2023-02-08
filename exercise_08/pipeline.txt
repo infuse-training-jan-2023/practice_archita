@@ -1,0 +1,25 @@
+import groovy.json.JsonSlurper
+
+pipeline {
+    agent {label 'jenkins-slave-archita'}
+
+    stages {
+        stage('Fetch') {
+            steps {
+                script {
+                    try {
+                        URL api_url_obj = new URL("https://jsonplaceholder.typicode.com/todos")
+                        def todos= new JsonSlurper().parse(api_url_obj)
+                        todos.each { todo ->
+                            if(!todo.completed)
+                                println todo
+                        } 
+                    } 
+                    catch(Exception e) {
+                        println "Exception ${e}"
+                    }
+                }
+            }
+        }
+    }
+}

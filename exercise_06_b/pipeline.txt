@@ -1,0 +1,16 @@
+pipeline {
+    agent {label 'jenkins-slave-archita'}
+
+    stages {
+        stage('build') {
+            steps {
+                bat "RMDIR /S /Q ${params.github_path}"
+                bat "git clone ${params.github_url}"
+                dir("${params.github_path}") {
+                    bat "git switch ${params.github_branch}"
+                    bat "ruby ${params.ruby_filename}"
+                }
+            }
+        }
+    }
+}

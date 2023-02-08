@@ -1,0 +1,9 @@
+MKDIR sample_dir
+
+CD "sample_dir"
+
+TYPE nul > sample.txt
+
+ECHO "hello world" >> sample.txt
+
+TYPE sample.txt
