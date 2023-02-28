@@ -1,8 +1,0 @@
-Feature: Delete an item
-    As a user i want to delete an item
-
-    Scenario: Delete an item
-        When i want to delete item
-        Then i should get the item deleted
-        Then the api status code should be 200
-        Then the api response content should be json

@@ -1,6 +1,0 @@
-*.db
-web_service_env
-commands.txt
-*.csv
-.pytest_cache
-__pycache__

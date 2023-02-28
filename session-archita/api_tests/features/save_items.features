@@ -1,8 +1,0 @@
-Feature: Save all items in a file
-    As a user i want to save all items in todo in a file
-
-    Scenario: Save all items in a file
-        When i save all items 
-        Then i should get all the items saved
-        Then the api status code should be 200
-        Then the api response content should be json
